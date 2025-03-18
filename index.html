@@ -1,103 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub.io - Fast and secure GitHub based file hosting</title>
-    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/Ls6BmqF3/favicon.png">
-    <link href="./GitHub.io - Fast and secure GitHub based file hosting_files/css" rel="stylesheet">
+    <title>Лендинг с кнопкой Download</title>
     <style>
-        /* Ваши стили остаются без изменений */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #87CEEB; /* голубой фон */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .download-button {
+            padding: 20px 40px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #007BFF; /* цвет кнопки */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        .download-button:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* эффект светения */
+        }
+
+        .progress-bar {
+            width: 0;
+            height: 10px;
+            background-color: #28a745;
+            transition: width 3s; /* скорость анимации */
+            margin-top: 20px;
+        }
+
+        .progress-container {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            display: none; /* скрываем контейнер */
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <button class="download-button" id="downloadBtn">Download</button>
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    </div>
 
-<div id="loader" style="display: none;">
-    <div class="spinner"></div>
-</div>
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
 
-<div class="container" style="display: block;">
-    <p class="title"></p>
-    <p class="password" onclick="copyPassword()">886677</p>
-    <button type="button" class="download-button" onclick="startDownload()">Download</button>
-    <div id="progressBar"><div></div></div>
-</div>
+            // Показываем progress bar
+            progressContainer.style.display = 'block';
 
-<script>
-    const telegramBotToken = 'YOUR_TELEGRAM_BOT_TOKEN'; // Замените на ваш токен бота
-    const telegramChatId = 'YOUR_TELEGRAM_CHAT_ID'; // Замените на ваш ID чата
+            // Анимация прогресс-бара
+            progressBar.style.width = '100%';
 
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            document.getElementById('loader').style.display = 'none';
-            document.querySelector('.container').style.display = 'block';
-
-            // Отправка уведомления в Telegram
-            sendTelegramNotification();
-        }, 4000);
-    });
-
-    function sendTelegramNotification() {
-        const message = 'Новый пользователь зашел на лендинг с GitHub!';
-        const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                chat_id: telegramChatId,
-                text: message,
-            }),
-        })
-        .then(response => response.json())
-        .then(data => console.log('Уведомление отправлено:', data))
-        .catch((error) => console.error('Ошибка:', error));
-    }
-
-    function startDownload() {
-        var mediafireUrl = "https://www.mediafire.com/file/kuriefsb78gnhmn/Github_Software.zip/file";
-        window.location.href = mediafireUrl;
-
-        var progressBar = document.getElementById('progressBar');
-        var progress = progressBar.firstElementChild;
-        progressBar.style.display = 'block';
-        var width = 0;
-        var interval = setInterval(function() {
-            if (width >= 100) {
-                clearInterval(interval);
-            } else {
-                width += 10;
-                progress.style.width = width + '%';
-            }
-        }, 300);
-    }
-
-    function copyPassword() {
-        navigator.clipboard.writeText("886677").then(function() {
-            alert("Пароль скопирован в буфер обмена");
+            // Переход на ссылку после завершения анимации
+            setTimeout(() => {
+                window.location.href = 'https://example.com'; // Замените на вашу ссылку
+            }, 3000); // Время 3 секунды, чтобы совпадало с анимацией
         });
-    }
-
-    function createCloud() {
-        var container = document.createElement("div");
-        container.classList.add("cloud-container");
-        container.style.top = Math.random() * 80 + "vh";
-        var duration = (15 + Math.random() * 10) * 1.35;
-        container.style.animationDuration = duration + "s";
-        var cloud = document.createElement("div");
-        cloud.classList.add("cloud");
-        cloud.innerText = "☁";
-        container.appendChild(cloud);
-        document.body.appendChild(container);
-        setTimeout(function() { container.remove(); }, duration * 1000 + 1000);
-    }
-
-    for (var i = 0; i < 5; i++) {
-        createCloud();
-    }
-    setInterval(createCloud, 4000);
-</script>
+    </script>
 </body>
 </html>
