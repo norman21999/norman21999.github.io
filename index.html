@@ -11,29 +11,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #1E90FF; /* синий фон */
-            font-family: 'Arial', sans-serif; /* добавлен шрифт */
-            transition: background-color 0.5s ease; /* плавный переход фона */
+            background: linear-gradient(135deg, #e6f5fa, #c3e1ec); /* фон, подобный указанному лендингу */
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s ease;
         }
 
         .container {
             text-align: center;
-            color: #fff; /* цвет текста */
+            color: #333; /* цвет текста */
         }
 
         .download-button {
             padding: 15px 50px;
             font-size: 24px;
             color: #fff;
-            background: linear-gradient(45deg, #4CAF50, #8BC34A); /* градиент кнопки */
+            background: linear-gradient(90deg, #007BFF, #00bfff); /* градиент кнопки */
             border: none;
-            border-radius: 30px; /* закругленные края */
+            border-radius: 30px;
             cursor: pointer;
-            text-transform: uppercase; /* все буквы заглавные */
-            letter-spacing: 1px; /* расстояние между буквами */
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
-            overflow: hidden; /* для эффекта нажатия */
-            transition: color 0.4s, transform 0.4s; /* анимация изменения цвета и размера */
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5); /* тень для кнопки */
+            transition: transform 0.3s, box-shadow 0.3s; /* анимация нажатия */
         }
 
         .download-button::before {
@@ -43,7 +44,7 @@
             left: 50%;
             width: 300%;
             height: 300%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             transform: translate(-50%, -50%) scale(0);
             transition: transform 0.5s;
@@ -55,15 +56,15 @@
         }
 
         .download-button:hover {
-            color: #1E90FF; /* цвет текста при наведении */
-            transform: scale(1.05); /* увеличение размера кнопки */
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.7); /* tень при наведении */
+            transform: translateY(-4px); /* эффект подъема кнопки */
         }
 
         .progress-bar {
             width: 0;
             height: 10px;
             background-color: #28a745;
-            transition: width 3s ease; /* скорость анимации */
+            transition: width 3s ease;
             margin-top: 20px;
         }
 
@@ -76,7 +77,7 @@
             max-width: 400px;
             margin: 20px auto;
             display: none; /* скрываем контейнер */
-            transition: display 0.3s ease; /* плавный переход для контейнера */
+            transition: display 0.3s ease;
         }
     </style>
 </head>
