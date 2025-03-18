@@ -11,11 +11,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #87CEEB; /* голубой фон */
+            background-color: #1E90FF; /* изменённый синий фон */
+            font-family: Arial, sans-serif; /* добавлен шрифт */
+            transition: background-color 0.5s ease; /* плавный переход фона */
         }
 
         .container {
             text-align: center;
+            color: #fff; /* цвет текста */
         }
 
         .download-button {
@@ -26,18 +29,19 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: box-shadow 0.3s;
+            transition: box-shadow 0.3s, transform 0.3s; /* добавлена анимация для эффекта нажатия */
         }
 
         .download-button:hover {
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* эффект светения */
+            transform: translateY(-2px); /* эффект подъема кнопки */
         }
 
         .progress-bar {
             width: 0;
             height: 10px;
             background-color: #28a745;
-            transition: width 3s; /* скорость анимации */
+            transition: width 3s ease; /* скорость анимации */
             margin-top: 20px;
         }
 
@@ -50,6 +54,7 @@
             max-width: 400px;
             margin: 20px auto;
             display: none; /* скрываем контейнер */
+            transition: display 0.3s ease; /* плавный переход для контейнера */
         }
     </style>
 </head>
