@@ -11,8 +11,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #1E90FF; /* изменённый синий фон */
-            font-family: Arial, sans-serif; /* добавлен шрифт */
+            background-color: #1E90FF; /* синий фон */
+            font-family: 'Arial', sans-serif; /* добавлен шрифт */
             transition: background-color 0.5s ease; /* плавный переход фона */
         }
 
@@ -22,19 +22,41 @@
         }
 
         .download-button {
-            padding: 20px 40px;
+            padding: 15px 50px;
             font-size: 24px;
             color: #fff;
-            background-color: #007BFF; /* цвет кнопки */
+            background: linear-gradient(45deg, #4CAF50, #8BC34A); /* градиент кнопки */
             border: none;
-            border-radius: 5px;
+            border-radius: 30px; /* закругленные края */
             cursor: pointer;
-            transition: box-shadow 0.3s, transform 0.3s; /* добавлена анимация для эффекта нажатия */
+            text-transform: uppercase; /* все буквы заглавные */
+            letter-spacing: 1px; /* расстояние между буквами */
+            position: relative;
+            overflow: hidden; /* для эффекта нажатия */
+            transition: color 0.4s, transform 0.4s; /* анимация изменения цвета и размера */
+        }
+
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s;
+            z-index: 0;
+        }
+
+        .download-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .download-button:hover {
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* эффект светения */
-            transform: translateY(-2px); /* эффект подъема кнопки */
+            color: #1E90FF; /* цвет текста при наведении */
+            transform: scale(1.05); /* увеличение размера кнопки */
         }
 
         .progress-bar {
